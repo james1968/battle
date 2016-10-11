@@ -2,8 +2,9 @@ require 'sinatra/base'
 
 class Battle < Sinatra::Base
 
-  set :sessions, true
-  set :logging, true
+  use Rack::Session::Cookie,:key => 'rack.session',
+                            :path => '/',
+                            :secret => 'your_secret'
 
   get '/' do
     erb :index
@@ -22,7 +23,11 @@ class Battle < Sinatra::Base
     redirect '/play'
   end
 
-
+  get '/attack' do
+    @player_1_name = session[:player_1_name]
+    @player_2_name = session[:player_2_name]
+    erb :attack
+  end
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
