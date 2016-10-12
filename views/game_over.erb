@@ -1,0 +1,5 @@
+<section>
+  <% if @game.game_over? %>
+    <%= @game.loser.name %> loses!
+  <% end %>
+</section>
