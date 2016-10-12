@@ -7,7 +7,7 @@ feature 'current player' do
   scenario 'switching turns' do
     sign_in_and_play
     click_link 'Attack'
-    click_link 'OK'
+    click_button 'OK'
     expect(page).to have_content 'Mittens\'s turn'
   end
 end

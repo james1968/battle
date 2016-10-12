@@ -13,6 +13,10 @@ class Game
     player.receive_damage
   end
 
+  def opponent
+    opponent_of(current_player)
+  end
+
   def player_1
     @players.first
   end
