@@ -13,4 +13,12 @@ describe Game do
     end
   end
 
+  describe 'game_over' do
+    it "should know when the game is over" do
+      dead_player = Player.new("Zombie", 0)
+      game = described_class.new(player_1, dead_player)
+      expect(subject.gave_over?).to be true
+    end
+  end
+
 end
