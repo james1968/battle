@@ -19,6 +19,13 @@ class Game
     @opponent = opponent_of(opponent)
   end
 
+  def loser
+    @players.select { |player| player.hit_points <=0 }.first
+  end
+
+  def game_over?
+    !loser.nil?
+  end
 
   def opponent_of(the_player)
     @players.select { |player| player != the_player }.first

@@ -4,8 +4,10 @@ require 'game'
 
 describe Game do
   subject(:game)  { described_class.new(snuggles, amaal) }
-  let(:snuggles)  { double :player, hit_points: 0  }
-  let(:amaal)     { double :player, hit_points: 0 }
+  subject(:finished_game) { described_class.new(dead_player, amaal) }
+  let(:snuggles)  { double :player, hit_points: 60  }
+  let(:amaal)     { double :player, hit_points: 60 }
+  let(:dead_player) { double :player, hit_points: 0}
 
   describe '#player_1' do
     it 'retrieves the first player' do
@@ -36,6 +38,16 @@ describe Game do
     it 'switches the turn' do
       game.switch_player
       expect(game.current_player).to eq amaal
+    end
+  end
+
+  describe '#game_over?' do
+   it 'returns false if no-one is at 0HP' do
+      expect(game).not_to be_game_over
+    end
+
+    it 'returns true if at least one player is at 0HP' do
+      expect(finished_game).to be_game_over
     end
   end
 
