@@ -25,7 +25,8 @@ feature 'Attacking' do
   scenario 'reduces hit points' do
     sign_in_and_play
     click_button 'Attack'
-    expect(page).to have_content 'Joffrey Lannister HP: 50'
+    expect(page).not_to have_content 'Joffrey Lannister HP: 60'
+    expect(page).to have_content 'Joffrey Lannister HP: '
   end
 end
 
@@ -48,12 +49,12 @@ feature 'Switching turns' do
   feature 'Losing the game' do
     scenario 'Player 2 loses' do
       sign_in_and_play
-      10.times do
+      100.times do
         click_button 'Attack'
+        break if page.has_content?("lost the game")
         click_button 'Next turn'
       end
-      click_button 'Attack'
-      expect(page).to have_content "Joffrey Lannister has lost the game"
+      expect(page).to have_content "lost the game"
     end
   end
 

@@ -10,7 +10,8 @@ describe Attack do
 
   describe 'attack' do
     it "should reduce hit points if you click attack" do
-      expect{subject.attack}.to change{player_2.hit_points}.by(-10)
+      srand(10)
+      expect{subject.attack}.to change{player_2.hit_points}.by(-45)
     end
   end
 end

@@ -10,7 +10,11 @@ class Player
 
 
   def reduce_health
-    @hit_points -= 10
+    @hit_points -= chance
+  end
+
+  def chance
+    rand(0..@hit_points)
   end
 
 end
