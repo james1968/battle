@@ -4,8 +4,8 @@
 <h2><%= @game.player_1.name %> HP: <%= @game.player_1.hit_points %> </h2>
 <h2><%= @game.player_2.name %> HP: <%= @game.player_2.hit_points %> </h2>
 
-<h2><%= @game.turn.current_turn.name %>'s turn</h2>
+<h2><%= @game.turn.current_turn.name %> is attacking you</h2>
 
 <form>
-  <button type="submit" formaction="/attack"> Attack </button>
+  <button type="submit" formaction="/attack_human"> Ok </button>
 </form>

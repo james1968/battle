@@ -1,0 +1,15 @@
+<!-- Title -->
+<h1><%= @game.player_1.name %> vs. <%= @game.player_2.name %></h1>
+
+<h2><%= @game.player_1.name %> HP: <%= @game.player_1.hit_points %> </h2>
+<h2><%= @game.player_2.name %> HP: <%= @game.player_2.hit_points %> </h2>
+
+
+<h2><%= @game.player_2.name %> attacked <%= @game.player_1.name %></h2>
+
+
+<h2> Attack successful! </h2>
+
+<form>
+  <button type="submit" formmethod="post" formaction="/switch_turn_human"> My turn </button>
+</form>

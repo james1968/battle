@@ -32,7 +32,7 @@ class Battle < Sinatra::Base
   end
 
   get '/play_computer' do
-    erb(:play_computer)
+    erb(:human_turn)
   end
 
   get '/attack' do
@@ -41,10 +41,37 @@ class Battle < Sinatra::Base
     erb(:attack)
   end
 
+  get '/attack_computer' do
+    @game.attack
+    redirect '/end' if @game.game_over?
+    erb(:attack_computer)
+  end
+
+  get '/attack_human' do
+    @game.attack
+    redirect '/end' if @game.game_over?
+    erb(:attack_human)
+  end
+
+  get '/computer_turn' do
+    erb(:computer_turn)
+  end
+
   post '/switch_turn' do
     @game.turn.switch_turn
     redirect '/play'
   end
+
+  post '/switch_turn_computer' do
+    @game.turn.switch_turn
+    redirect '/computer_turn'
+  end
+
+  post '/switch_turn_human' do
+    @game.turn.switch_turn
+    redirect '/play_computer'
+  end
+
 
   get '/end' do
     erb(:end)
