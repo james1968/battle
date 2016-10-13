@@ -14,3 +14,12 @@ feature 'Player 2 is the computer' do
     expect(page).to have_content "Robot (the Computer)"
   end
 end
+
+feature 'Can be attacked by computer' do
+  scenario 'after attacking computer' do
+    sign_in_and_play_computer
+    click_button 'Attack'
+    click_button 'Next Turn'
+    expect(page).to have_content "Robot (the Computer) is attacking you"
+  end
+end
