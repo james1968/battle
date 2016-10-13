@@ -10,6 +10,14 @@ class Game
     @turn = turn.new(player_1, player_2)
   end
 
+  def self.create(player_1, player_2)
+    @game = Game.new(player_1, player_2)
+  end
+
+  def self.instance
+    @game
+  end
+
   def attack
     player_receiving_damage.reduce_health
   end
