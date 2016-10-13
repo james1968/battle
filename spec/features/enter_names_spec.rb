@@ -45,7 +45,17 @@ feature 'Switching turns' do
     end
   end
 
-
+  feature 'Losing the game' do
+    scenario 'Player 2 loses' do
+      sign_in_and_play
+      10.times do
+        click_button 'Attack'
+        click_button 'Next turn'
+      end
+      click_button 'Attack'
+      expect(page).to have_content "Joffrey Lannister has lost the game"
+    end
+  end
 
 
 
