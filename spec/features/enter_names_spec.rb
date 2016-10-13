@@ -39,7 +39,7 @@ feature 'Switching turns' do
     scenario 'after player 1 attacks' do
       sign_in_and_play
       click_button 'Attack'
-      click_link 'Next turn'
+      click_button 'Next turn'
       expect(page).not_to have_content "Ned Stark's turn"
       expect(page).to have_content "Joffrey Lannister's turn"
     end
