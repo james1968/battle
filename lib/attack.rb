@@ -5,6 +5,7 @@ class Attack
     @current_turn = current_turn
     @player_1 = player_1
     @player_2 = player_2
+    self.attack
   end
 
   def attack

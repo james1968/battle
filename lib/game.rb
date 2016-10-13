@@ -9,7 +9,6 @@ class Game
     @player_1 = player_1
     @player_2 = player_2
     @turn = turn.new(player_1, player_2)
-    @attack = Attack.new(player_1, player_2, @turn.current_turn)
   end
 
   def self.create(player_1, player_2)
@@ -21,7 +20,7 @@ class Game
   end
 
   def attack
-    @attack.attack
+    Attack.new(@player_1, @player_2, @turn.current_turn)
   end
 
   def game_over?
