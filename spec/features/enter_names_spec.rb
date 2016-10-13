@@ -23,6 +23,7 @@ feature 'Attacking' do
   end
 
   scenario 'reduces hit points' do
+    skip
     sign_in_and_play
     click_button 'Attack'
     expect(page).not_to have_content 'Joffrey Lannister HP: 60'
