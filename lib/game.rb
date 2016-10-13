@@ -1,4 +1,5 @@
 require_relative 'turn'
+require_relative 'attack'
 
 class Game
 
@@ -8,6 +9,7 @@ class Game
     @player_1 = player_1
     @player_2 = player_2
     @turn = turn.new(player_1, player_2)
+    @attack = Attack.new(player_1, player_2, @turn.current_turn)
   end
 
   def self.create(player_1, player_2)
@@ -19,15 +21,7 @@ class Game
   end
 
   def attack
-    player_receiving_damage.reduce_health
-  end
-
-  def player_receiving_damage
-    if @turn.current_turn == @player_2
-      @player_1
-    else
-      @player_2
-    end
+    @attack.attack
   end
 
   def game_over?
