@@ -1,3 +1,14 @@
-.red {
-  color: red;
+@font-face {
+  font-family: EA_Sports_Outline; src: url('EA Sports Covers SC 1.5 Outline.ttf');
+  font-family: EA_Sports; src: url('EA Sports Covers SC 1.5.ttf');
+}
+
+
+body {
+  font-family: EA_Sports;
+}
+
+#page_title {
+  font-size: 60px;
+  text-align: center;
 }
