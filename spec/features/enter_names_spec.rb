@@ -23,11 +23,10 @@ feature 'Attacking' do
   end
 
   scenario 'reduces hit points' do
-    skip
     sign_in_and_play
+    allow(Game.instance.player_2).to receive(:hit_points).and_return(50)
     click_button 'Attack'
-    expect(page).not_to have_content 'Joffrey Lannister HP: 60'
-    expect(page).to have_content 'Joffrey Lannister HP: '
+    expect(page).to have_content 'Joffrey Lannister HP: 50'
   end
 end
 
